@@ -41,3 +41,4 @@ JS infiere el tipo de cada variable. ver más en [Mozilla](https://developer.moz
 - undefined significa que una variable ha sido declarada pero no se le ha asignado un valor
 - null es un valor para asignar. Al igual que en Java, null representa un valor vacio (o en pocas palabras nada).
 
+Visita las guías del curso para complementar
