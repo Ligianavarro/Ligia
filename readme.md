@@ -21,3 +21,27 @@ En este repositorio cada rama va estar relacionada a un eje temático. Donde, pa
 - homeworks
 
 Al abrir cada carpeta vamos a tener guías (una especie de landing) para poner en contexto la finalidad de cada carpeta.
+
+## Requerimientos de software para el eje temático 1
+
+Este ciclo esta más orientado al desarrollo, por lo tanto, vamos a necesitar los siguientes programas:
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+
+Para VSCode vamos a instalar las siguientes extensiones:
+
+### Extensiones JS
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  
+### Temas
+
+- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+
+### Code Formater (organizador de código)
+
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+### Gráficas de Git
+
+- [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
