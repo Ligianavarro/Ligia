@@ -1,16 +1,44 @@
-# Objetos en JS
+# Funciones en JS
 
-Recuerdas la definición "JS es un lenguaje orientado a prototipos", ¿será eso lo mismo que lenguaje orientado a objetos (POO)?, resulta que a pesar de que se puede implementar POO, la programación orientada a prototipos permite crear objetos sin tener que crear las clases.
-Ver más en [W3School](https://www.w3schools.com/js/js_objects.asp)
+Las funciones son bloques de código reutilizables, tienen entradas (llamadas argmentos de la función) y salidas (o retorno). En JS es posible crear una función como:
 
+```
+function suma(a,b){
+  return a+b
+}
+```
 
-## Entonces, ¿se puede aplicar los fundamentos de POO?
+Donde el nombre de la funcion en este caso es suma, el cual a partir de dos números `a` y `b` realiza la suma y retorna el resultado. ¿Fácil , no?
 
-1. Abstraer, cualquier entidad se puede representar como un objeto en JS.
-2. Jerarquizar, tambien se puede implementar herencia.
-3. Modularizar, en este caso, los scripts se pueden organizar en directorios (similar a los paquetes de Java) para crear modulos de código.
-4. Encapsular, tambien existen los modificadores de acceso `public` y `private` en la especificación de JS ES6 (2015).
+## Funciones de flecha
 
-## Conociendo más sobre los prototipos de JS
+Las funciones tambien se suelen crear en el formato flecha. por lo que, la función suma se vería de la siguiente manera:
 
-Revisa la [guía de Mozilla](https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/Object_prototypes), no hay mejor forma de describir de que se tratan los prototipos como lo hacen en Mozilla.
+```
+const suma = ()=>{
+  return a+b
+}
+```
+
+## Desestructuración de objetos en argumentos de funciones
+
+Suponiendo que tenemos una funcion donde un argumento es un objeto:
+
+```
+
+const persona = {peso: 60, estatura: 1.70}
+
+const calcularIMC = (persona)=>{
+
+}
+```
+
+Entonces, podemos realizar la desestructuración directamente en el argumento de la función:
+
+```
+const calcularIMC = ({peso, estatura})=>{
+
+  return imc = peso/estatura**2
+
+}
+```

@@ -41,7 +41,21 @@ JS infiere el tipo de cada variable. ver más en [Mozilla](https://developer.moz
 - undefined significa que una variable ha sido declarada pero no se le ha asignado un valor
 - null es un valor para asignar. Al igual que en Java, null representa un valor vacio (o en pocas palabras nada).
 
+## Arreglos
 
+Los arreglos se definen usando corchetes [] (Exactamente igual que en Python).
+
+## Spread
+
+la notación spread `...array_name` se usa en arreglos para concatenar arreglos. Ejemplo,
+
+```
+let arr1 = [0, 1, 2];
+let arr2 = [3, 4, 5];
+arr1 = [...arr1, ...arr2];
+```
+
+Practicamente es una copia que estamos haciendo al usar la notación.
 
 ## Visita las guías del curso para complementar:
 
