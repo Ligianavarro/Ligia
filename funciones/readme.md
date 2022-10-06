@@ -42,3 +42,8 @@ const calcularIMC = ({peso, estatura})=>{
 
 }
 ```
+
+## Funciones Callback
+
+Normalmente, hemos visto que los argumentos de una función pueden ser objetos, variables o constantes. Ahora, con JS podemos tener una función como argumento.
+*Ver la demostración 1 de funciones.*
