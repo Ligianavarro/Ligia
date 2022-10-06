@@ -1,13 +1,14 @@
+const year = 1999
+
 const auto = {
-  color: "blanco",
+  color: "azul",
   pasajeros: 5,
-  valvulas: 16,
-  marca: "toyota",
-  obtenerCaracteristicas: function () {
-    const texto = `El automovil de marca ${ 5+5 } tiene ${this.valvulas} valvulas. `
+  year: 2020,
+  obtenerDescripcion: function () { 
+    const texto = `El automovil es año ${ this.year } y es de color ${ this.color } `
     return texto
-  },
+  }
 }
 
-console.log(auto.obtenerCaracteristicas())
 
+console.log(auto.obtenerDescripcion())
