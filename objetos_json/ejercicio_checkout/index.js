@@ -1,43 +1,43 @@
-function Person(nombre, edad) {
-  this.nombre = nombre
-  this.edad = edad
-}
-
-const persona1 = new Person()
 
 const peticion = new XMLHttpRequest()
-peticion.open("GET", "https://www.datos.gov.co/resource/xdk5-pm3f.json")
+
+peticion.open("GET","https://www.datos.gov.co/resource/xdk5-pm3f.json")
 peticion.responseType = "json"
 peticion.send()
-peticion.onload = function () {
 
-  const res = peticion.response
+peticion.onload = function(){
 
-  //    let auxDpt = res.[i].departamento
-  const dptos = [];
-  dptos.from()
-  for (let i = 0; i < res.length; i++) {
-    document.getElementById("ciudad").innerHTML += `<option>${res[i].municipio}</option>`;
+  //console.log(peticion)<option>Bucaramanga</option>
 
-    let auxDpt = dptos.find((elemento) => { return res[i].departamento === elemento })
-    dptos.push(res[i].departamento)
-    if (auxDpt !== res[i].departamento)
-      document.getElementById("departamento").innerHTML += `<option>${res[i].departamento}</option>`;
+  let selectCiudad = "<option value=''>Selecciona...</option>"
+  let selectDepartamento = "<option value=''>Selecciona...</option>"
+
+  const datos = peticion.response
+
+
+  datos.sort( function(a,b){ 
+
+    return a.departamento - b.departamento
+    
+   } )
+
+  console.log(datos)
+
+  for (let i = 1; i < datos.length; i++) {
+
+    selectCiudad += `<option>${ datos[i].municipio }</option>`
+
+    if (datos[i].departamento !== datos[i-1].departamento ){
+      selectDepartamento += `<option>${ datos[i].departamento }</option>`
+    }
+    
   }
 
-  function callback(value, index, obj) {
-    return true
-  }
+  document.getElementById("ciudad").innerHTML = selectCiudad
+  document.getElementById("departamento").innerHTML = selectDepartamento
 
+  //console.log(selectCiudad)
 
-  let arreglo = res.find((value, index, obj) => {
-    return value.departamento === "Cundinamarca"
-  })
-
-  console.log(
-    (document.getElementById("departamento").innerHTML +=
-      "<option>Santander</option>")
-  )
 }
 
-console.log("fin del programa")
+console.log("Fin del programa")
