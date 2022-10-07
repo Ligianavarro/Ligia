@@ -46,4 +46,27 @@ const calcularIMC = ({peso, estatura})=>{
 ## Funciones Callback
 
 Normalmente, hemos visto que los argumentos de una función pueden ser objetos, variables o constantes. Ahora, con JS podemos tener una función como argumento.
-*Ver la demostración 1 de funciones.*
+
+```
+const mostrarIMC = (miFuncionIMC)=>{
+
+  if( miFuncionIMC > 18.5 && miFuncionIMC < 24.9 ){
+    console.log("Rango Normal de IMC")
+  }
+
+}
+```
+
+## Usando Callback en arreglos
+
+Los arreglos heredan caracteristicas del [prototipo Array](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array). Supongamos el siguiente ejemplo:
+
+```
+const edades = [14, 23, 55, 15, 18, 21];
+```
+
+Para llevar a cabo el filtro por edades se usa filter.
+
+```
+const mayoresDeEdad = edades.filter(edad => edad >= 18);
+```

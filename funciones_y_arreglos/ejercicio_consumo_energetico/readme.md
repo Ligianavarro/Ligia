@@ -7,17 +7,17 @@ consumo = tiempoEnHoras*potenciaEnKilovatios*costoKilovatio
 ```
 
 ## Actividades a realizar
-1) Revise la factura de la luz, encuentre el valor que le cobra la electrificadora por cada Kilovatio [KW].
-2) Busque un electrodomestico y calcule cuanto tiempo lo usa al mes. Recuerde que el tiempo debe estar en horas.
-3) Encuentre la potencia del electrodoméstico, este valor esta dado en vatios [W].
-4) Cree un método que tenga como parametros: el tiempo de uso al mes en horas, la potencia del electrodoméstico en vatios y el valor de que cobra la electrificadora por cada kilovatio consumido. el método debe calcular el costo energético mensual de un electrodoméstico.
-
+1. Revise la factura de la luz, encuentre el valor que le cobra la electrificadora por cada Kilovatio [KW].
+2. Busque un electrodomestico y calcule cuanto tiempo lo usa al mes. Recuerde que el tiempo debe estar en horas.
+3. Encuentre la potencia del electrodoméstico, este valor esta dado en vatios [W].
+4. Cree un método que tenga como parametros: el tiempo de uso al mes en horas, la potencia del electrodoméstico en vatios y el valor de que cobra la electrificadora por cada kilovatio consumido. el método debe calcular el costo energético mensual de un electrodoméstico.
+5. Por medio de callback usar un alert solo cuando el valor del costo energetico es mayor a 80000 mil.
 
 ## Codigo de prueba
 Inserte el siguiente codigo.
 
 ```
-Alert(`El costo energético mensual es: costoEnergeticoMensual(30,240,700)`)
+Alert(`El costo energético mensual es: ${costoEnergeticoMensual(30,240,700)}`)
 ```
 Tener en cuenta, 30 es el consumo en horas de un cargador, el valor de 240 pertenece a los vatios de un cargador de celular y 700 es el valor en pesos del kilovatio.
 
