@@ -100,11 +100,16 @@ Se debe entonces, declarar de la siguiente manera.
 
 ```
 async function nameFunction(){
-  await promesa()
+  try{
+    await promesa()
+  } catch (e){
+    throw new Error(e)
+  }
 }
 ```
+
+¿ Porqué el bloque `try` ... `catch`? Como la sentencia await resuelve la promesa sin necesidad de llamar el then o el `catch`, entonces, para controlar el código respecto a errores se usa el bloque `try`, el cual intenta ejecutar el codigo, si no se resuelve ( es decir, hubo una excepcion en el bloque `try`), se ejecuta y controla la respuesta al error mediante `catch`.
 
 ## Peticiones
 
 De ahora en adelante, las peticiones las vamos a realizar por medio de el objeto `fetch` que tiene la capacidad de resolverse mediante una promesa. Ver más en [mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
-

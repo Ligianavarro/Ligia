@@ -15,7 +15,7 @@ Donde el nombre de la funcion en este caso es suma, el cual a partir de dos núm
 Las funciones tambien se suelen crear en el formato flecha. por lo que, la función suma se vería de la siguiente manera:
 
 ```
-const suma = ()=>{
+const suma = (a,b)=>{
   return a+b
 }
 ```
