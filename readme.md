@@ -1,30 +1,36 @@
 # Introducción a Javascript
 
-Bienvenidos estimados tripulantes, en la primera semana la temática que vamos a ver es una introducción a JS. Especificamente los temas que vamos a tocar son:
+Bienvenidos estimados tripulantes, para la segunda semana vamos a empezar la implementación del proyecto Backend. Especificamente los temas que vamos a tocar son:
 
-1. ¿Qué es y porqué JS?​
+2.1. Creación del proyecto​
 
-2. Bases del lenguaje​
+2.2. Configuración de dependencias​
 
-3. Objetos JSON​
+2.3. Estructura del backend​
 
-4. Funciones​
+2.4. Manual de creación de la BD​
 
-5. Programación asíncrona
+2.5. Conexión a la BD​
+
+2.6. Modelos y rutas en el backend​
+
+2.7. Inserción de documentos en colecciones​
+
+2.8. Búsqueda de documentos en colecciones​
+
+2.9. Actualización y eliminación de documentos en colecciones​
 
 ## ¿Cómo usar el repositorio compartido?
 
-En este repositorio cada rama va estar relacionada a un eje temático. Donde, para cada eje, vamos a tener tres carpetas.
-
-- teoria
-- practica
-- homeworks
+En este repositorio cada rama va estar relacionada a un eje temático. Donde, para cada eje, cada carpeta esta organizada según el tema a estudiar.
 
 Al abrir cada carpeta vamos a tener guías (una especie de landing) para poner en contexto la finalidad de cada carpeta.
 
-## Requerimientos de software para el eje temático 1
+## Requerimientos de software para el eje temático 2
 
 Este ciclo esta más orientado al desarrollo, por lo tanto, vamos a necesitar los siguientes programas:
+
+- [NodeJS](https://nodejs.org/es/)
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
