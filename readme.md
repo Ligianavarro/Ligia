@@ -34,9 +34,16 @@ Este ciclo esta más orientado al desarrollo, por lo tanto, vamos a necesitar lo
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-Para VSCode vamos a instalar las siguientes extensiones:
+### Bases de datos no relacionales MongoDB
+
+A continuación, descarga e instala MongoDB Community, eso instalará el motor de bases de datos en local, posteriormente, descarga e instala Studio 3T.
+
+- [MongoDB Community](https://www.mongodb.com/try/download/community)
+- [Studio 3T](https://robomongo.org/)
 
 ### Extensiones JS
+
+Para VSCode vamos a instalar las siguientes extensiones:
 
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   
