@@ -26,20 +26,109 @@ Ten en cuenta que, puedes personalizar los atributos del modelo usando las sigui
 Este es un ejemplo de un modelo usando las propiedades anteriores:
 
 ```
-const carritoItemSchema = new Schema(
+const usuarioSchema = new mongoose.Schema(
   {
-    producto: {
-      type: Schema.Types.ObjectId,
-      ref: "producto",
+    numeroDocumento: {
+      type: String,
+      required: [true, "El numero de documento es obligatorio"],
+      unique: true
     },
-    usuario: {
-      type: Schema.Types.ObjectId,
-      ref: "usuario",
+    telefono: {
+      type: String,
     },
-    cantidad: Number,
+    password: String,
+    tipo: {
+      enum: ["PACIENTE","MEDICO"]
+      default: "PACIENTE"
+    }
   },
   { timestamps: true }
 )
 ```
 
 Fijate que, se pasa otro objeto para el segundo argumento del constructor `Schema`, eso solo es una opción para indicar que mongoose cree automaticamente los campos `createdAt` y `updateAt`.
+
+<br>
+
+El schema solo define como debe ser el objeto a guardar. Para obtener métodos CRUD del objeto necesitamos crear finalmente el modelo:
+
+```
+const UsuarioModel = new mongoose.model("usuario", usuarioSchema) 
+```
+
+Tener en cuenta que, el primer argumento del usuario model es un string que indica en singular el nombre de la colección.
+
+### Relaciones entre colecciones
+
+Supongamos que en el proyecto, estas definiendo las entidades usuario y cita. Suponiendo que en usuario se guardan los datos del paciente, identificamos que un usuario puede tener muchas citas (relación OneToMany). Si bien, en SQL se implementa lo que llamamos una llave foranea, para hacer que la columna de la entidad cita haga referencia a registros de la entidad usuario, en MongoDB es igual. Para los objetos cita definimos un atributo nuevo que se llame usuario y haga referencia al usuario. En resumidas cuentas, la implementación quedaria así:
+
+```
+const citaSchema = new mongoose.Schema(
+  {
+    fecha: Date,
+    codigoUnico: String,
+    usuario: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "usuario"
+    }
+  },
+  { timestamps: true }
+)
+```
+
+# Realizando operaciones CRUD desde el backend
+
+Las operaciones CRUD (Create, Read, Update o Delete) se usan de una manera muy similar respecto a Studio 3T o MongoDB Compass.
+
+## 1. Create
+
+Siempre se usan los modelos generados en el paso anterior para poder hacer cualquier operación CRUD. Entonces, para insertar por ejemplo un pacientese tiene lo siguiente:
+
+```
+UsuarioModel.insertMany({
+    numeroDocumento: "123456",
+    telefono: "302623",
+    password: "paciente0000",
+  })
+  .then(() => { console.log("Se inserto el usuario correctamente")})
+  .catch( () => { console.log("No se logro insertar el usuario")})
+```
+
+Si bien `insertMany` esta recibiendo un solo objeto, tambien puede recibir como argumento varios objetos en un `array`. Para insertar un objeto que referencia a otro objeto, es necesario saber el ObjectID para identificar el obeto a referenciar, entonces, suponiendo que el usuario anterior genero el ID `ObjectId("blablabla123")` se crea una cita del usuario así:
+
+```
+CitaModel.insertMany({
+    fecha: new Date().toISOString(),
+    codigoUnico: "123-PACIENTE-blablabla123",
+    usuario: mongoose.Schema.Types.ObjectId("blablabla123")
+  })
+  .then(() => { console.log("Se inserto la cita correctamente")})
+  .catch( () => { console.log("No se logro insertar la cita")})
+```
+
+## 2. Read
+
+Para leer es necesario usar el método findOne() o find() según el caso. Si queremos encontrar el usario con el número de documento "123456" entonces:
+
+```
+UsuarioModel.findOne({
+    numeroDocumento: "123456"
+  })
+  .then((respuestaDeBD) => { console.log("Se encontro el usuario con el documento: " + respuestaDeBD.numeroDocumento)})
+  .catch( () => { console.log("No se encontro el usuario")})
+```
+
+Es posible leer objetos referenciados para que se vean como objeto anidados y no el ObjectID. Entonces para cita se tiene:
+
+```
+CitaModel.findOne({
+    codigoUnico: "123-PACIENTE-blablabla123",
+  })
+  .populate('usuario')
+  .then((respuestaDeBD) => { console.log("Se encontro la cita con el usuario: " + respuestaDeBD.usuario.numeroDocumento)})
+  .catch( () => { console.log("No se encontro")}).
+```
+
+## 3 y 4. Update y Delete
+
+Generalmente, los metodos Create son los más complicados. Para actualizar es necesario hacer la consulta primero del objeto a actualizar y para borrar, tambien. Entonces, puedes usar los métodos `updateOne(<filtro>,<objeto>)`, `updateMany(<filtro>,<objeto>)`, `deleteOne(<filtro>)` y `deleteMany(<filtro>)`. Donde `<filtro>` es el objeto usado para consultar como lo hacemos con find y `<objeto>` es el objeto que se pasa con datos actualizados.
