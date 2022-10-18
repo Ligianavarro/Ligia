@@ -85,3 +85,16 @@ Para instalar *Express* se usa el siguiente comando en consola: `npm i express`
 ## Empezando con [*Express*](https://expressjs.com/)
 
 Procura siempre revisar la documentación de cada paquete de node. Para empezar con Express primero importa la libreria `const express = require("express")`, luego crea una constante y llama la función express `const app = express()`, agrega la ruta que necesitas exponer: `app.get("/",()=>{})` y finalmente indica el puerto en el que quieras ejecutar el servidor `app.listen(3000)`. Ahora revisa en el navegador la ruta http://localhost:3000, encontraras que carga una página en blanco. Por lo tanto, ya tienes ejecutando express.
+
+## Usando rutas en otro archivo independiente
+
+En un archivo diferente (en este caso ese archivo lo llamamos *usuarios*), importa la clase Router de express así `const { Router } = require('express')`, luego, llama la función constructora `const router = Router()`, usa la ruta que quieras definir `router.get("/",()=>{})` y finalmente exporta el router `module.exports = router`.
+
+</br>
+
+Para implementar las rutas en Express usalas como middleware así: `app.use( "/", require('../routes/usuarios'))`
+
+## Variables de entorno
+
+Usa `npm i dotenv` para instalar la dependencia de manejo de variables de entorno. Las variables de entorno se crean en un archivo *.env* y se llaman usando `require('dotenv').config()` y se acceden mediante el objeto `process.env`.
+

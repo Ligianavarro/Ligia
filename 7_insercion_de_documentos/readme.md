@@ -24,5 +24,11 @@ CitaModel.insertMany({
   .catch( () => { console.log("No se logro insertar la cita")})
 ```
 
+## Encriptando la contraseña
 
-```
+Usa el siguiente comando para instalar la libreria de encriptación `npm i bcryptjs`. Para encriptar cualquier atributo (en este caso la contraseña) solo es necesario importar bcrypt `const bcrypt = require('bcryptjs')`, luego crea el objeto de encriptación `const salt = bcrypt.genSaltSync(10)` y finalmente encripta el String `const hash = bcrypt.hashSync("micontraseña0000", salt)`
+
+## Verificando la contraseña
+
+Usa la sentencia `bcrypt.compareSync("micontraseña0000", hash)` para evaluar si las contraseñas coinciden o no.
+
