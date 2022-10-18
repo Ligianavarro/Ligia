@@ -69,3 +69,19 @@ const citaSchema = new mongoose.Schema(
 # Realizando operaciones CRUD desde el backend
 
 Las operaciones CRUD (Create, Read, Update o Delete) se usan de una manera muy similar respecto a Studio 3T o MongoDB Compass. Revisa las próximas secciones para realizar operaciones CRUD en node.
+
+- [Create](https://gitlab.com/misiontic.formador85/repositorio-ciclo-4a/-/tree/tema_2_backend/7_insercion_de_documentos)
+- [Read](https://gitlab.com/misiontic.formador85/repositorio-ciclo-4a/-/tree/tema_2_backend/8_busqueda_de_documentos)
+- [Update y Delete](https://gitlab.com/misiontic.formador85/repositorio-ciclo-4a/-/tree/tema_2_backend/9_actualizacion_y_eliminacion_de_documentos)
+
+# Implementando rutas en Node
+
+Cuando hablamos de rutas, tratamos con aquellos componentes de código que nos permiten exponer servicios web. Sin embargo, es necesario un servidor (componente de software que expone una aplicación web) para alojar el backend.
+
+## Instalando el servidor *Express*
+
+Para instalar *Express* se usa el siguiente comando en consola: `npm i express`
+
+## Empezando con [*Express*](https://expressjs.com/)
+
+Procura siempre revisar la documentación de cada paquete de node. Para empezar con Express primero importa la libreria `const express = require("express")`, luego crea una constante y llama la función express `const app = express()`, agrega la ruta que necesitas exponer: `app.get("/",()=>{})` y finalmente indica el puerto en el que quieras ejecutar el servidor `app.listen(3000)`. Ahora revisa en el navegador la ruta http://localhost:3000, encontraras que carga una página en blanco. Por lo tanto, ya tienes ejecutando express.
