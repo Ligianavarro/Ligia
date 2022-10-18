@@ -1,4 +1,12 @@
-# Introducción a Javascript
+# Guías
+
+Antes de revisar este repositorio revisa las guías de MisiónTIC 2022 - UIS asociadas a la implementación del backend.
+
+- [Guía paso a paso backend](https://lms.uis.edu.co/mintic2022/libros/2022/app-web/C4AM2%20-%20Backend.pdf)
+
+- [Guía resumen y cuestionario](https://lms.uis.edu.co/mintic2022/libros/2022/app-web/C4AM2%20-%20Recurso%20Educativo%20Digital.pdf)
+
+# Backend
 
 Bienvenidos estimados tripulantes, para la segunda semana vamos a empezar la implementación del proyecto Backend. Especificamente los temas que vamos a tocar son:
 
