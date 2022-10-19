@@ -1,0 +1,23 @@
+{
+  "name": "la_tienda",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/u37-grupo-20/la_tienda_gitlab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/u37-grupo-20/la_tienda_gitlab/issues"
+  },
+  "homepage": "https://gitlab.com/u37-grupo-20/la_tienda_gitlab#readme",
+  "dependencies": {
+    "mongoose": "^6.6.5"
+  }
+}
