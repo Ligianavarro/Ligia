@@ -84,7 +84,66 @@ Para instalar *Express* se usa el siguiente comando en consola: `npm i express`
 
 ## Empezando con [*Express*](https://expressjs.com/)
 
-Procura siempre revisar la documentación de cada paquete de node. Para empezar con Express primero importa la libreria `const express = require("express")`, luego crea una constante y llama la función express `const app = express()`, agrega la ruta que necesitas exponer: `app.get("/",()=>{})` y finalmente indica el puerto en el que quieras ejecutar el servidor `app.listen(3000)`. Ahora revisa en el navegador la ruta http://localhost:3000, encontraras que carga una página en blanco. Por lo tanto, ya tienes ejecutando express.
+Procura siempre revisar la documentación de cada paquete de node. Para empezar con Express primero importa la libreria `const express = require("express")`, luego crea una constante y llama la función express `const app = express()`, agrega la ruta que necesitas exponer: `app.get("/",()=>{})` y finalmente indica el puerto en el que quieras ejecutar el servidor `app.listen(3000)`. Ahora revisa en el navegador la ruta http://localhost:3000, encontraras que carga una página en blanco. Por lo tanto, ya tienes ejecutando express. Literal, el código inicial con los pasos anteriores se debe ver así:
+
+```
+const express = require("express")
+const app = express()
+app.get("/",()=>{})
+app.listen(3000)
+```
+
+# Clases en Javascript
+
+Las clases representan el plano o molde de un objeto, se especifican entonces atributos y métodos. Sin embargo, JS desd su versión del 2015 implementa una forma curiosa de crear clases. Inicialmente la clase se define en un script así:
+
+```
+class Usuario {
+
+}
+```
+
+Para la clase *Usuario* se definen algunos atributos de ejemplo, como: nombres, apellidos, fecha de nacimiento, correo y contraseña. Entonces debido a que JS se basa en prototipos, se definen todos los atributos normalmente en el contructor de la clase. Por consiguiente tendriamos una clase Usuario así:
+
+```
+class Usuario {
+
+  constructor(nombres, apellidos, fechaNacimiento, correo, password){
+    this.nombres = nombres
+    this.apellidos = apellidos
+    this.fechaNacimiento = fechaNacimiento
+    this.correo = correo
+    this.password = password
+  }
+
+}
+```
+
+Suponiendo que el usuario tiene un método para imprimir nombres y apellidos entonces, los métodos se definen al igual que el constructor.
+
+```
+class Usuario {
+
+  constructor(nombres, apellidos, fechaNacimiento, correo, password){
+    this.nombres = nombres
+    this.apellidos = apellidos
+    this.fechaNacimiento = fechaNacimiento
+    this.correo = correo
+    this.password = password
+  }
+
+  imprimirNombres(){
+    console.log(`El usuario es ${this.nombres} ${this.apellidos}`)
+  }
+
+}
+```
+
+El fin de las clases es crear los diferentes objetos con el mismo molde, por lo que ahora podemos crear un usuario así:
+
+```
+const usuario1 = new Usuario("Pepito","Perez",new Date("1980-01-01"), "pepito@mail.com", "0000")
+```
 
 ## Usando rutas en otro archivo independiente
 
