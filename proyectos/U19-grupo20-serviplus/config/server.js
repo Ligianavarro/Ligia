@@ -1,25 +1,27 @@
 const express = require("express")
+const crearCliente = require("../controllers/cliente")
+const conexionDB = require("./database")
 
 class Server {
-
   constructor() {
+    this.port = 3000
     this.app = express()
-    this.app.use( express.json() )
+
+    this.app.use(express.json())
+    
+    this.app.listen(this.port, ()=>{
+      console.log("se esta ejecutando la app")
+    })
+
     this.routes()
-    this.app.listen(3000)
+
+    conexionDB()
   }
 
   routes() {
-    this.app.get("/", (request, response) => {
-      response.send("")
-    })
-
-    this.app.post("/crear-usuario", (request, response) => {
-      console.log(request.body)
-      response.send(request.body)
-    })
+    // ESTA ES LA RUTA PARA CREAR UN USUARIO
+    this.app.post("/cliente", crearCliente)
   }
-
 }
 
 module.exports = Server
