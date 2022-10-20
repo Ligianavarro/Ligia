@@ -2,7 +2,11 @@ const {connect} = require("mongoose")
 
 // 1. Conectamos la base de datos
 const connectDB = () => {
-  connect("mongodb://localhost:27017/la_tienda")
+  connect("mongodb://localhost:27017/la_tienda", {
+    useNewUrlParser: true,
+  
+
+    })
     .then(() => {
       console.log("conectado a la base de datos")
     })

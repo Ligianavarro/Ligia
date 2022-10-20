@@ -5,7 +5,6 @@ const usuarioSchema = new mongoose.Schema({
   tipoDoc: String,
   numeroDoc: {
     type: String,
-    unique: true,
     required: [true, "¡El numero de documento es obligatorio!"],
   },
   fechaConexion: Date,

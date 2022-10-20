@@ -1,20 +1,20 @@
 const express = require("express")
+const {crearUsuario, getUsuarios} = require("../controllers/usuario")
+const connectDB = require("./database")
 
 class Server {
+
   constructor() {
     this.aplicacion = express()
     this.aplicacion.use( express.json() )
+    this.aplicacion.listen(3000, ()=>{ console.log("se esta ejecutando el servidor") })
     this.rutas()
-    this.aplicacion.listen(3000)
+    connectDB()
   }
 
   rutas() {
-    this.aplicacion.post("/usuarios/create", (peticion, respuesta) => {
-
-      console.log(peticion.body.email)
-      respuesta.send("Hola desde el backend")
-      
-    })
+    this.aplicacion.post("/usuario", crearUsuario)
+    this.aplicacion.get("/usuario", getUsuarios)
   }
 }
 
