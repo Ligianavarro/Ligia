@@ -27,7 +27,7 @@ async function crearUsuario(req = request, res = response) {
 async function getUsuarios(req = request, res = response){
 
   try{
-    const listaUsuarios = await UsuarioModel.find()
+    const listaUsuarios = await UsuarioModel.find({tipo: req.query.tipo})
     res.send(listaUsuarios)
   } catch(error){
     res.send({mensaje: "hubo un error"})
