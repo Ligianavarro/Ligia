@@ -66,3 +66,8 @@ Para VSCode vamos a instalar las siguientes extensiones:
 ### Gráficas de Git
 
 - [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+
+# Extras
+
+## Usando JSON WEB TOKENS (JWT)
+

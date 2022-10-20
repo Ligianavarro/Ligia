@@ -157,3 +157,13 @@ Para implementar las rutas en Express usalas como middleware así: `app.use( "/"
 
 Usa `npm i dotenv` para instalar la dependencia de manejo de variables de entorno. Las variables de entorno se crean en un archivo *.env* y se llaman usando `require('dotenv').config()` y se acceden mediante el objeto `process.env`.
 
+## Personalizando la respuesta de la base de datos
+
+Se sobreescribe una funcion para cambiar la forma como la base de datos devuelve los objetos guardados. Copia el siguiente código despues de crear el Schema de tu entidad (es decir, en cualquier archivo de la carpeta *models*):
+
+```
+usuarioSchema.methods.toJSON = function() {
+  const {__v, password, ...restodelobjeto} = this.toObject()
+  return restodelobjeto
+}
+```

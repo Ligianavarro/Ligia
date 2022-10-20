@@ -32,3 +32,82 @@ Usa el siguiente comando para instalar la libreria de encriptación `npm i bcryp
 
 Usa la sentencia `bcrypt.compareSync("micontraseña0000", hash)` para evaluar si las contraseñas coinciden o no.
 
+# Usando *Middlewares* para validar
+
+Los middleware no son más que funciones que se ejecutan antes de ejecutar un controlador. Ejecuta `npm i express-validator` para instalar el validador de campos de objetos JSON.
+
+## Usando los middleware en rutas
+
+El método de ruta (sea get(), post(), put() o delete()) normalmente lo implementamos con dos argumentos: `"/larutadeseada"` y el controlador `(req, res)=>{}`, sin embargo se pueden agregar validadores de campos usando la funcion `check` (se importa como: `const { check } = require("express-validator")`). Entonces, si queremos validar que un campo debe tener el formato de correo entonces:
+
+```
+this.app.post("/cliente", 
+[check("email", "Error en el campo correo").isEmail()], 
+crearCliente)
+```
+
+Ahora, *Express-Validator* encontrara errores de sintaxis de email, sin embargo, para responder cuando hay un error usa el siguiente código en el controlador. Asegurate de importar el validador `const { validationResult } = require("express-validator")`.
+
+```
+const errores = validationResult(req)
+if (!errores.isEmpty()){
+  return res.status(400).json(errores)
+}
+```
+
+Algunos de los validadores comunmente usados son: `not().isEmpty()`, `.isIn(['ADMINISTRADOR', 'USUARIO'])`, `.isLength({min: 10})`, `isMongoId()` y `custom( campo => { if (campo >6) throw new Error("Error en un campo") })`.
+
+### Custom Middlewares
+
+Se usan los custom middlewares si encuentras que en varios controladores tienes un bloque de código en común. Entonces, crea un archivo nuevo en una carpeta llamada middlewares (el nombre esta a tu discreción) y la estructura del middleware es similar a la de un controlador, EXCEPTO POR UN DETALLE:
+
+```
+function verificarErrores(req, res, next){
+  const errores = validationResult(req)
+  if (!errores.isEmpty()){
+    return res.status(400).json(errores)
+  }
+  next()
+}
+```
+
+El detalle es que tiene un argumento más llamado next, no es más que un método que se ejecuta cuando todo sale bien en el middleware personalizado.
+
+# Insertando archivos en el Backend
+
+Ejecuta `npm i express-fileupload`, luego usamos el siguiente middleware (asegurate de importar `const fileUpload = require("express-fileupload")`):
+
+```
+this.app.use(fileUpload({
+    useTempFiles : true,
+    tempFileDir : '/tmp/'
+}))
+```
+
+Ahora, para el controlador encargado de subir archivos basate en el siguiente código:
+
+```
+const path = require("path")
+
+function cargaImagen(req, res){
+
+  if (!req.files || Object.keys(req.files).length === 0) {
+    return res.status(400).json({mensaje: 'No se encontro el archivo'});
+  }
+  
+  // Extrae el archivo segun el nombre (en este caso "archivo")
+  const archivo = req.files.archivo;
+  const uploadPath = path.join( __dirname, '../uploads/', archivo.name);
+  
+  // Usa el metodo mv() para colocar el archivo en cualquier parte del backend
+  archivo.mv(uploadPath, error => {
+    if (error)
+      return res.status(500).send(error)
+    
+    res.send('File uploaded!')
+  })
+
+}
+
+module.exports = cargaImagen
+```
