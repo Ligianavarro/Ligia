@@ -1,5 +1,6 @@
 const express = require("express")
-const crearCliente = require("../controllers/cliente")
+
+const routerCliente = require("../routes/cliente")
 const conexionDB = require("./database")
 
 class Server {
@@ -8,8 +9,8 @@ class Server {
     this.app = express()
 
     this.app.use(express.json())
-    
-    this.app.listen(this.port, ()=>{
+
+    this.app.listen(this.port, () => {
       console.log("se esta ejecutando la app")
     })
 
@@ -19,8 +20,9 @@ class Server {
   }
 
   routes() {
-    // ESTA ES LA RUTA PARA CREAR UN USUARIO
-    this.app.post("/cliente", crearCliente)
+
+    this.app.use( "/", routerCliente )
+
   }
 }
 
