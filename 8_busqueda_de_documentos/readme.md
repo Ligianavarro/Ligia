@@ -19,3 +19,26 @@ CitaModel.findOne({
   .populate('usuario')
   .then((respuestaDeBD) => { console.log("Se encontro la cita con el usuario: " + respuestaDeBD.usuario.numeroDocumento)})
   .catch( () => { console.log("No se encontro")}).
+```
+
+## Leyendo archivos guardados en el backend
+
+Los arhivos de cualquier extensión ya previamente guardados en el servidor se pueden mostrar en un endpoint usando la libreria *File System* nativa de Node, si quieres aprender más sobre manipulación de archivos del sistema [haz clic aquí](https://www.w3schools.com/nodejs/nodejs_filesystem.asp). Entonces, sigue el siguiente controlador para exponer archivos.
+
+```
+function getImagen(req = request, res = response) {
+
+  const {imagenName} = req.query
+
+  const ruta = path.join(__dirname, "../uploads/", imagenName)
+
+  // Buscar imagen
+  if( fs.existsSync(ruta) ){
+
+    res.sendFile(ruta)
+
+  } else {
+    return res.send({mensaje: "no existe el archivo"})
+  }
+}
+```

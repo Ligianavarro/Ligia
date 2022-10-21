@@ -92,22 +92,40 @@ const path = require("path")
 function cargaImagen(req, res){
 
   if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).json({mensaje: 'No se encontro el archivo'});
+    return res.status(400).json({ mensaje: "No se encontro el archivo" })
   }
-  
+
   // Extrae el archivo segun el nombre (en este caso "archivo")
-  const archivo = req.files.archivo;
-  const uploadPath = path.join( __dirname, '../uploads/', archivo.name);
-  
+  const archivo = req.files.archivo
+  const uploadPath = path.join(__dirname, "../uploads/", archivo.name)
+
   // Usa el metodo mv() para colocar el archivo en cualquier parte del backend
-  archivo.mv(uploadPath, error => {
-    if (error)
-      return res.status(500).send(error)
-    
-    res.send('File uploaded!')
+  archivo.mv(uploadPath, (error) => {
+    if (error) return res.status(500).send(error)
+
+    res.send("Archivo cargado corectamente")
   })
 
 }
 
 module.exports = cargaImagen
 ```
+
+Ten en cuenta que el codigo no incluye alguna relación con entidades, si necesitas relacionar, busca el objeto dependiendo la entidad y agregale un nuevo atributo tipo `String` para la ruta de la imagen.
+
+## Tip
+
+Usa `npm i uuid` para instalar la dependencia que genera identificadores únicos. Esto es para los nombres de los archivos.
+
+# Usando moment
+
+Cuando manejas datos de tiempo (tipo Date), se suele usar moment que facilita la creación o el `parsing` de objetos de tiempos. 
+
+- Para crear la fecha actual usa `const now = moment()`
+  
+puedes usar el constructor de moment para crear las fechas que quieras:
+
+- `moment([2022, 10, 21]);`
+- `moment("12/25/1995", "MM-DD-YYYY")`
+
+Si revisas, como Mongo usa formato ISO, guarda las fechas y horas sin indicar la zona horaria, usa moment para ver una fecha consultada de la base de datos con la hora actual. 

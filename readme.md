@@ -84,3 +84,22 @@ Para VSCode vamos a instalar las siguientes extensiones:
 
 ## Usando JSON WEB TOKENS (JWT)
 
+Los tokens se usan como una forma de autenticar usuarios, validar transacciones u otras operaciones financieras. Vienen en diferentes formatos, en este caso, como implementamos una aplicación tipo REST, el token debe estar en formato JSON. Ejecuta `npm i jsonwebtoken` para empezar a crear tokens en tu aplicación.
+
+### Crea una ruta y controlador para login
+
+Usa una ruta con método POST y un controlador para implementar la logica del token.
+Importa `const jwt = require("jsonwebtoken")`, firma usando la siguiente función:
+
+```
+jwt.sign(id, "secretkey", {expiresIn: "4h"},(err, token)=>{
+  if (err)
+    console.log("Error al generar token")
+  else
+    req.send(token)
+})
+```
+
+### Protege una ruta
+
+Debes crear un middleware para ejecutar antes del controlador. usa el método `verify(token, "secretkey")` para verificar un token.
