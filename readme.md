@@ -1,4 +1,6 @@
-# Guías
+# Backend
+
+## Guías
 
 Antes de revisar este repositorio revisa las guías de MisiónTIC 2022 - UIS asociadas a la implementación del backend.
 
@@ -6,7 +8,14 @@ Antes de revisar este repositorio revisa las guías de MisiónTIC 2022 - UIS aso
 
 - [Guía resumen y cuestionario](https://lms.uis.edu.co/mintic2022/libros/2022/app-web/C4AM2%20-%20Recurso%20Educativo%20Digital.pdf)
 
-# Backend
+## Pruebas realizadas con postman
+
+A continuación encontrarán todas las pruebas realizadas a los proyectos en la sesiones sincronicas en los siguientes enlaces.
+
+- [Workspace en Postman curso U19](https://www.postman.com/misionticformador85/workspace/misiontic-2022-uis-u19)
+- [Workspace en Postman curso U37](https://www.postman.com/misionticformador85/workspace/misiontic-2022-uis-u37)
+
+## Eje temático
 
 Bienvenidos estimados tripulantes, para la segunda semana vamos a empezar la implementación del proyecto Backend. Especificamente los temas que vamos a tocar son:
 
@@ -48,6 +57,10 @@ A continuación, descarga e instala MongoDB Community, eso instalará el motor d
 
 - [MongoDB Community](https://www.mongodb.com/try/download/community)
 - [Studio 3T](https://robomongo.org/)
+
+## Pruebas a endpoints
+
+- [Postman](https://www.postman.com/downloads/)
 
 ### Extensiones JS
 
