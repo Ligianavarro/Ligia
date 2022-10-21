@@ -1,5 +1,6 @@
 const express = require("express")
-const {crearUsuario, getUsuarios} = require("../controllers/usuario")
+
+const routerUsuario = require("../routes/usuario")
 const connectDB = require("./database")
 
 class Server {
@@ -13,8 +14,7 @@ class Server {
   }
 
   rutas() {
-    this.aplicacion.post("/usuario", crearUsuario)
-    this.aplicacion.get("/usuario", getUsuarios)
+    this.aplicacion.use("/", routerUsuario)
   }
 }
 
