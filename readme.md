@@ -92,7 +92,7 @@ Usa una ruta con método POST y un controlador para implementar la logica del to
 Importa `const jwt = require("jsonwebtoken")`, firma usando la siguiente función:
 
 ```
-jwt.sign(id, "secretkey", {expiresIn: "4h"},(err, token)=>{
+jwt.sign(id, "secretkey", (err, token)=>{
   if (err)
     console.log("Error al generar token")
   else
@@ -100,6 +100,27 @@ jwt.sign(id, "secretkey", {expiresIn: "4h"},(err, token)=>{
 })
 ```
 
+Ten en cuenta que antes de firmar un token es necesario que compruebes las credenciales del login.
+1. Verificar correo o username
+2. Verificar contraseña
+3. Ahora si crea el token
+4. Responde con el token
+
 ### Protege una ruta
 
-Debes crear un middleware para ejecutar antes del controlador. usa el método `verify(token, "secretkey")` para verificar un token.
+Debes crear un middleware para ejecutar antes del controlador. usa el método `verify(token, "secretkey")` para verificar un token. Si bien no deseas usar un middleware, puedes usar el metodo al principio del controlador. Por ejemplo:
+
+```
+function getUsuarios(req, res){
+
+  try{
+    const verificado = verify(req.header("Authorization"), "millavesecreta123456789")
+
+    if (verificado){
+      ...
+    }
+  }
+  catch(e){}
+
+}
+```
