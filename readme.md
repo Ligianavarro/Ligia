@@ -1,41 +1,32 @@
-# Backend
+# Frontend​
+
+Ánimo, ya falta poco para culminar el curso! 💪💪
 
 ## Guías
 
-Antes de revisar este repositorio revisa las guías de MisiónTIC 2022 - UIS asociadas a la implementación del backend.
+Antes de revisar este repositorio revisa las guías de MisiónTIC 2022 - UIS asociadas a la implementación del frontend. Revisa en la primera guía las extensiones de VScode a usar.
 
-- [Guía paso a paso backend](https://lms.uis.edu.co/mintic2022/libros/2022/app-web/C4AM2%20-%20Backend.pdf)
+- [Guía paso a paso frontend](https://lms.uis.edu.co/mintic2022/libros/2022/app-web/C4AM3%20-%20Frontend.pdf)
 
-- [Guía resumen y cuestionario](https://lms.uis.edu.co/mintic2022/libros/2022/app-web/C4AM2%20-%20Recurso%20Educativo%20Digital.pdf)
-
-## Pruebas realizadas con postman
-
-A continuación encontrarán todas las pruebas realizadas a los proyectos en la sesiones sincronicas en los siguientes enlaces.
-
-- [Workspace en Postman curso U19](https://www.postman.com/misionticformador85/workspace/misiontic-2022-uis-u19)
-- [Workspace en Postman curso U37](https://www.postman.com/misionticformador85/workspace/misiontic-2022-uis-u37)
+- [Guía resumen y cuestionario](https://lms.uis.edu.co/mintic2022/libros/2022/app-web/C4AM3%20-%20Recurso%20Educativo%20Digital.pdf)
 
 ## Eje temático
 
 Bienvenidos estimados tripulantes, para la segunda semana vamos a empezar la implementación del proyecto Backend. Especificamente los temas que vamos a tocar son:
 
-2.1. Creación del proyecto​
+3.1 Set-up del IDE​
 
-2.2. Configuración de dependencias​
+3.2 Creación del proyecto ReactJS​
 
-2.3. Estructura del backend​
+3.3 Uso del template AdminLTE​
 
-2.4. Manual de creación de la BD​
+3.4 Componente de autenticación​
 
-2.5. Conexión a la BD​
+3.5 Componente Home​
 
-2.6. Modelos y rutas en el backend​
+3.6 Componente Proyectos​
 
-2.7. Inserción de documentos en colecciones​
-
-2.8. Búsqueda de documentos en colecciones​
-
-2.9. Actualización y eliminación de documentos en colecciones​
+3.7 Componente Tareas de Proyectos​
 
 ## ¿Cómo usar el repositorio compartido?
 
@@ -82,45 +73,6 @@ Para VSCode vamos a instalar las siguientes extensiones:
 
 # Extras
 
-## Usando JSON WEB TOKENS (JWT)
+## Usando JSON WEB TOKENS (JWT) para bloquear rutas
 
-Los tokens se usan como una forma de autenticar usuarios, validar transacciones u otras operaciones financieras. Vienen en diferentes formatos, en este caso, como implementamos una aplicación tipo REST, el token debe estar en formato JSON. Ejecuta `npm i jsonwebtoken` para empezar a crear tokens en tu aplicación.
-
-### Crea una ruta y controlador para login
-
-Usa una ruta con método POST y un controlador para implementar la logica del token.
-Importa `const jwt = require("jsonwebtoken")`, firma usando la siguiente función:
-
-```
-jwt.sign(id, "secretkey", (err, token)=>{
-  if (err)
-    console.log("Error al generar token")
-  else
-    req.send(token)
-})
-```
-
-Ten en cuenta que antes de firmar un token es necesario que compruebes las credenciales del login.
-1. Verificar correo o username
-2. Verificar contraseña
-3. Ahora si crea el token
-4. Responde con el token
-
-### Protege una ruta
-
-Debes crear un middleware para ejecutar antes del controlador. usa el método `verify(token, "secretkey")` para verificar un token. Si bien no deseas usar un middleware, puedes usar el metodo al principio del controlador. Por ejemplo:
-
-```
-function getUsuarios(req, res){
-
-  try{
-    const verificado = verify(req.header("Authorization"), "millavesecreta123456789")
-
-    if (verificado){
-      ...
-    }
-  }
-  catch(e){}
-
-}
-```
+Los tokens se usan como una forma de autenticar usuarios, validar transacciones u otras operaciones financieras. Vienen en diferentes formatos, en este caso, como implementamos una aplicación tipo REST, el token debe estar en formato JSON.
