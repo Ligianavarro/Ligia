@@ -29,6 +29,7 @@ class Server {
 
     this.app.use( "/cliente", routerCliente )
     this.app.use( "/producto", routerProducto )
+    this.app.use( "/auth", require("../routes/auth") )
 
   }
 }
