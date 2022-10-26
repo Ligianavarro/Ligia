@@ -8,4 +8,4 @@ Sigue la guía del formador para hacerte una idea de como inicializar el proyect
 
 # Configuración de dependencias
 
-Usa el comando `npm i <aca_va_el_nombre_de_la_dependencia>` para usar dependencias de software externas. Ejemplo: para usar la base de datos necesitaras ejecutar `npm i mongoose`. Para versiones de node mayores o iguales a 14 no es necesario usar la bandera --save. Verifica la versión de node con el siguiente comando: `node --version`
+Usa el comando `npm i <aca_va_el_nombre_de_la_dependencia>` para usar dependencias de software externas. Ejemplo: para usar adminLTE necesitaras ejecutar `npm install admin-lte@^3.2`. Para versiones de node mayores o iguales a 14 no es necesario usar la bandera --save. Verifica la versión de node con el siguiente comando: `node --version`

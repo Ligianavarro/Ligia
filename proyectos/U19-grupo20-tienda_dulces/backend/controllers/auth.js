@@ -7,15 +7,15 @@ async function login(req = request, res = response) {
   
   const {email, password} = req.body
 
-  // Buscar cliente
-  const cliente = await ClienteModel.findOne({email})
+  // 1. Buscar cliente
+  const clienteBD = await ClienteModel.findOne({email})
 
-  if(cliente){
+  if(clienteBD){
 
     // SI LAS CREDENCIALES SON VALIDAS
-    if (compareSync(password, cliente.password)) {
+    if (compareSync(password, clienteBD.password)) {
 
-      sign({ id: cliente.id }, "grupo20-tiend4$Dulces", (err, token)=>{
+      sign({ id: clienteBD.id }, "grupo20-tiend4$Dulces", (err, token)=>{
 
         if (err)
           res.status(500).send({mensaje: "hubo un error"})
