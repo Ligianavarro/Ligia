@@ -34,20 +34,11 @@ En este repositorio cada rama va estar relacionada a un eje temático. Donde, pa
 
 Al abrir cada carpeta vamos a tener guías (una especie de landing) para poner en contexto la finalidad de cada carpeta.
 
-## Requerimientos de software para el eje temático 2
+## Requerimientos de software para el eje temático 3
 
 Este ciclo esta más orientado al desarrollo, por lo tanto, vamos a necesitar los siguientes programas:
 
-- [NodeJS](https://nodejs.org/es/)
-
 - [Visual Studio Code](https://code.visualstudio.com/)
-
-### Bases de datos no relacionales MongoDB
-
-A continuación, descarga e instala MongoDB Community, eso instalará el motor de bases de datos en local, posteriormente, descarga e instala Studio 3T.
-
-- [MongoDB Community](https://www.mongodb.com/try/download/community)
-- [Studio 3T](https://robomongo.org/)
 
 ## Pruebas a endpoints
 
@@ -73,6 +64,7 @@ Para VSCode vamos a instalar las siguientes extensiones:
 
 # Extras
 
-## Usando JSON WEB TOKENS (JWT) para bloquear rutas
+Revisa la guía oficial para profundizar o recordar conceptos React.
 
-Los tokens se usan como una forma de autenticar usuarios, validar transacciones u otras operaciones financieras. Vienen en diferentes formatos, en este caso, como implementamos una aplicación tipo REST, el token debe estar en formato JSON.
+- [ReactJS documentación en español](https://es.reactjs.org/docs/hello-world.html)
+- [ReactJS nueva documentación](https://beta.es.reactjs.org/learn)
