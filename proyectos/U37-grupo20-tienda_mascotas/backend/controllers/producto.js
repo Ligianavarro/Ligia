@@ -4,17 +4,10 @@ const {verify} = require("jsonwebtoken")
 const path = require("path")
 
 async function crearProducto(req = request, res = response) {
-  // AUTENTICAR
-  const token = req.header("Authorization")
-
-  if ( verify(token, "grupo20_tiend4$M4scotas") ){
-    // CREAR EL PRODUCTO
-    const producto = new ProductoModel(req.body)
-    const productoCreado = await producto.save()
-
-    res.status(201).send({mensaje: "se creo el producto", productoCreado})
-  } else
-    res.status(401).send({mensaje: "no esta autorizado", auth: false})
+  // CREAR EL PRODUCTO
+  const producto = new ProductoModel(req.body)
+  const productoCreado = await producto.save()
+  res.status(201).send({mensaje: "se creo el producto", productoCreado})
 
 }
 
