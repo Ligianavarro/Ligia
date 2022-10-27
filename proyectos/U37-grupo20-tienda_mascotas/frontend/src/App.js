@@ -1,27 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+
+import "admin-lte/dist/js/adminlte.js"
+
+import Home from "./pages/admin/home"
 
 function App() {
+  /*const titulo = 
+  <div>
+    <h1 className="titulo">Tienda de mascotas</h1>
+    <p>Esta es la tienda virtual de Mascotas</p>
+  </div>*/
 
-  return (
-    <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-    </div>
-  );
-
+  return <Home />
 }
 
-export default App;
+export default App
