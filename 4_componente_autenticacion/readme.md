@@ -27,4 +27,42 @@ function Login() {
 }
 ```
 
-... Acá va ir más documentación
+## Usando peticiones
+
+Puedes usar el método `fetch()`, el cual viene integrado desde la versión 2015 de JS. Sin embargo, en este caso vamos a usar una libreria muy reconocida para realizar peticiones llamada `axios`.
+
+### Haciendo una petición POST
+
+Importa en el componente donde quieres hacer una petición `import axios from "axios"`, crea una función para ejecutar usando el método `post`, sigue el siguiente ejemplo:
+
+```
+function createPost() {
+  axios
+    .post(baseURL, {
+      title: "Hola Mundo!",
+      body: "Enviando info"
+    })
+    .then((response) => {
+      setPost(response.data);
+    })
+}
+```
+
+## Haciendo un POST con cabecero
+
+Basate en el siguiente ejemplo para enviar una petición con un cabecero. Ten en cuenta que la constante token ya debe estar guardada en tu aplicación.
+
+```
+let config = {
+  headers: {
+    Authorization: token,
+  }
+}
+
+let data = {
+      title: "Hola Mundo!",
+      body: "Enviando info"
+    }
+
+axios.post(URL, data, config).then(...)
+```
