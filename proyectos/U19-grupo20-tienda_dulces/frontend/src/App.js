@@ -4,6 +4,7 @@ import Login from './pages/auth/login';
 // Estilos
 import './App.css';
 import Home from './pages/admin/home';
+import {Routes, Route, Link} from "react-router-dom"
 
 
 function App() {
@@ -15,7 +16,12 @@ function App() {
     </div>
   
   return (
-    <Home />
+
+    <Routes>
+      <Route path="" element={ <Home/> } />
+      <Route path="/login" element={ <Login/> } />
+    </Routes>
+
   );
 }
 
