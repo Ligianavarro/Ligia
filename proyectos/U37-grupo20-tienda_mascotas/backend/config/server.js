@@ -3,6 +3,8 @@ const routerProducto = require("../routes/producto")
 const routerUsuario = require("../routes/usuario")
 const connectDB = require("./database")
 const fileUpload = require("express-fileupload")
+const cors = require("cors")
+
 
 class Server {
 
@@ -15,8 +17,9 @@ class Server {
       useTempFiles : true,
       tempFileDir : '/tmp/'
     }))
+    this.aplicacion.use( cors() )
   
-    this.aplicacion.listen(3000, ()=>{ console.log("se esta ejecutando el servidor") })
+    this.aplicacion.listen(3001, ()=>{ console.log("se esta ejecutando el servidor") })
     this.rutas()
     
     connectDB()

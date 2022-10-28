@@ -2,11 +2,11 @@ import React from "react"
 
 export default function Navbar() {
   return (
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav className="main-header navbar navbar-expand navbar-white navbar-light">
       <ul className="navbar-nav">
         <li className="nav-item">
           <a href="" className="nav-link">
-            <i class="fas fa-bars"></i>
+            <i className="fas fa-bars" />
           </a>
         </li>
         <li className="nav-item">

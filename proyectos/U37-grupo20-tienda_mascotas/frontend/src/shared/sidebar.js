@@ -2,16 +2,18 @@ import React from "react"
 
 export default function Sidebar() {
   return (
-    <aside style={ {height: "100vh"} } className="main-sidebar sidebar-dark-primary elevation-4">
-      <a href="../../index3.html" class="brand-link">
-        <span class="brand-text font-weight-light">Tienda Mascotas</span>
+    <aside
+      
+      className="main-sidebar sidebar-dark-primary elevation-4">
+      <a href="../../index3.html" className="brand-link">
+        <span className="brand-text font-weight-light">Tienda Mascotas</span>
       </a>
 
       <div className="sidebar">
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image"></div>
-          <div class="info">
-            <a href="#" class="d-block">
+        <div className="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div className="image"></div>
+          <div className="info">
+            <a href="#" className="d-block">
               Alexander Pierce
             </a>
           </div>
@@ -19,32 +21,31 @@ export default function Sidebar() {
       </div>
 
       <nav>
-        <ul
-          className="nav nav-pills nav-sidebar flex-column">
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+        <ul className="nav nav-pills nav-sidebar flex-column">
+          <li className="nav-item">
+            <a href="#" className="nav-link">
+              <i className="nav-icon fas fa-tachometer-alt" />
               <p>
                 Productos
-                <i class="right fas fa-angle-left"></i>
+                <i className="right fas fa-angle-left" />
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+            <ul className="nav nav-treeview">
+              <li className="nav-item">
+                <a href="../../index.html" className="nav-link">
+                  <i className="far fa-circle nav-icon" />
                   <p>Crear producto</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="../../index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+              <li className="nav-item">
+                <a href="../../index2.html" className="nav-link">
+                  <i className="far fa-circle nav-icon" />
                   <p>Listar productos</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+              <li className="nav-item">
+                <a href="../../index3.html" className="nav-link">
+                  <i className="far fa-circle nav-icon" />
                   <p>Modificar producto</p>
                 </a>
               </li>

@@ -15,6 +15,9 @@
 		{
 			"name": "U37-grupo20-tienda_mascotas",
 			"path": "proyectos/U37-grupo20-tienda_mascotas"
+		},
+		{
+			"path": "proyectos/U37-grupo20-tienda_mascotas/frontend"
 		}
 	],
 	"settings": {}

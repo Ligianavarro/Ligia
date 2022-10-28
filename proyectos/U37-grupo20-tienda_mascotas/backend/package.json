@@ -19,6 +19,7 @@
   "homepage": "https://gitlab.com/u37-grupo-20/la_tienda_gitlab#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-fileupload": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
